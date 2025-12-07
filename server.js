@@ -13,7 +13,10 @@ import cloudinary from "./config/cloudinary.js";
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://safe-together-eta.vercel.app"], // Add your frontend URLs
+  credentials: true
+}));
 app.use(express.json());
 
 app.use("/auth", authRoutes);
